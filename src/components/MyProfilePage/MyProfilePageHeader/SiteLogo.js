@@ -1,5 +1,4 @@
 import { Image } from 'react-bootstrap'
-import './SiteLogo.css'
 import logo from './Natur Milker Logo.png'
 
 const SiteLogo = () => {

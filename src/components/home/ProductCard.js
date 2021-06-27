@@ -6,7 +6,7 @@ const ProductCard = (props) => {
   return (
 
     <Card key={props.index}>
-      <Link to='/productsdetailspage'>
+      <Link to='/product-detail'>
       <Card.Img variant='top' src='./images/farm.jpg' />
       </Link>
       <Card.Body>

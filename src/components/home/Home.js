@@ -1,19 +1,12 @@
-import './HomePage.css'
 import { Container, Row, Col } from 'react-bootstrap'
-import HeaderHomePage from './HeaderHomePage/HeaderHomePage'
-import SearchBoxArea from './SearchBoxArea/SearchBoxArea'
-import AdvicedProductsArea from './AdvicedProductsHomePage/AdvicedProductsArea'
+import SearchBoxArea from './SearchBoxArea'
+import AdvicedProductsArea from './ProductList'
 
 const HomePage = (props) => {
   return (
 
     <Container>
       {/* or fluid*/}
-      <Row className='headerHomePage'>
-        <Col>
-        <HeaderHomePage />
-        </Col>
-      </Row>
       <Row className='searchBoxAreaMain'>
         <Col>
         <SearchBoxArea />

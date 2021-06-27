@@ -1,4 +1,3 @@
-import './ProductsSearchResults.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import HeaderHomePage from './HeaderHomePage/HeaderHomePage'
 import SearchBoxArea from './SearchBoxArea/SearchBoxArea'

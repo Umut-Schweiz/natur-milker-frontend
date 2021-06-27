@@ -1,9 +1,10 @@
-import HomePage from './components/HomePage/HomePage'
+import HomePage from './components/home/Home'
 import ProductsSearchResults from './components/ProductsSearchResults/ProductsSearchResults'
-import ProductDetailsPage from './components/ProductDetails/ProductDetailsPage'
+import ProductDetail from './components/home/ProductDetail'
 import MyProfilePage from './components/MyProfilePage/MyProfilepage'
 import UpdateProfileInfo from './components/MyProfilePage/UpdateProfileInfo/UpdateProfileInfo'
-import Footer from './components/Footer/Footer'
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -55,31 +56,34 @@ const App =  () => {
   
   return (
     <>
+
     <Router>
+    <Header/>
       <div>
         <Switch>
           <Route exact path='/'>
             <HomePage product={productsforHomePage}/>
           </Route>
-          <Route path='/productsearchresult'>
+          <Route path='/product-search-result'>
             <ProductsSearchResults/>
           </Route>
-          <Route path='/productsdetailspage' >
-            <ProductDetailsPage  product={productsforProductDetailsPage} />
+          <Route path='/product-detail' >
+            <ProductDetail  product={productsforProductDetailsPage} />
           </Route>
-          <Route path='/myprofilepage'>
+          <Route path='/my-profile-page'>
             <MyProfilePage/>
           </Route>
-          <Route path='/updateprofileinfo'>
+          <Route path='/update-profile-info'>
             <UpdateProfileInfo/>
           </Route>
-          <Route path='/createproduct'>
+          <Route path='/create-product'>
             <UpdateProfileInfo/>
           </Route>
         </Switch>
       </div>
+      <Footer/>
     </Router>
-    <Footer/>
+    
     </>
   )
 }

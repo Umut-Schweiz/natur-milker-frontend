@@ -1,6 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import SiteLogo from './SiteLogo'
-import './HeaderHomePage.css'
 import LoginButton from '../LoginButtons/LoginButton'
 
 const HeaderHomePage = () => {

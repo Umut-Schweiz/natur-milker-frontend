@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from '@auth0/auth0-react'
 
 ReactDOM.render(
   <Auth0Provider domain='dev-umutgungor.eu.auth0.com' clientId='psuEn3ZXBjkvTxPFgiSzo4kgxFSRrxqS' redirectUri={window.location.origin}>

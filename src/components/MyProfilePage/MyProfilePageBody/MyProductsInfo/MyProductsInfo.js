@@ -1,6 +1,5 @@
 import ProductsTable from './ProductsTable'
 
-import CreteNewProductButton from './CreateNewProductButton'
 import { Container, Row } from 'react-bootstrap'
 import CreateNewProductButton from './CreateNewProductButton'
 

@@ -1,7 +1,6 @@
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import SearchBoxProducts from './SearchBoxProducts'
 import SearchBoxCantons from './SearchBoxCantons'
-import './SearchBoxArea.css'
 
 const SearchBoxArea = () => {
   return (
