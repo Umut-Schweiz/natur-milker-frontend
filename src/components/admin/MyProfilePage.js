@@ -1,6 +1,6 @@
 import { Col, Row, Container } from 'react-bootstrap'
-import MyProfilePageHeader from './MyProfilePageHeader/MyProfilePageHeader'
-import MyProfilePageBody from './MyProfilePageBody/MyProfilePageBody'
+import MyProfileHeader from './MyProfileHeader'
+import MyProfileBody from './MyProfileBody/MyProfileBody'
 
 const MyProfilePage = () => {
   return (
@@ -8,12 +8,12 @@ const MyProfilePage = () => {
     <Container>
       <Row>
         <Col>
-        <MyProfilePageHeader/>
+        <MyProfileHeader/>
         </Col>
       </Row>
       <Row>
         <Col>
-        <MyProfilePageBody/>
+        <MyProfileBody/>
         </Col>
       </Row>
     </Container>

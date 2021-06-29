@@ -14,7 +14,7 @@ const Header = () => {
         </Col>
         <Col md='auto'>
         <Col md='auto'>
-        <Link to='myprofilepage'>
+        <Link to='my-profile-page'>
         <Button>
           Temporary Login
         </Button>

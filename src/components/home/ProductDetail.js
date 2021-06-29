@@ -1,6 +1,7 @@
 import { Container, Row, Col, Tabs, Tab, Carousel } from 'react-bootstrap'
 
-const DetailedProduct = (props) => {
+const DetailedProduct = () => {
+
   return (
     <Container className='detailed-product'>
       <Row>

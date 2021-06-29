@@ -49,7 +49,7 @@ const SearchBoxArea = () => {
         </Form.Group>
         </Col>
         <Col xs lg='2'>
-        <Link to='/productsearchresult'>
+        <Link to='/product-search-result'>
         <Button variant='outline-secondary' className='button-search' size='lg'>
           Search
         </Button>

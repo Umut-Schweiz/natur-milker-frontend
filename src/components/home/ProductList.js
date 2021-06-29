@@ -1,4 +1,4 @@
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col  } from 'react-bootstrap'
 import ProductCard from './ProductCard'
 
 const AdvicedProductsArea = (props) => {
