@@ -1,11 +1,14 @@
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const ProductCard = (props) => {
 
   return (
 
     <Card key={props.index}>
-      <Card.Img variant='top' src='./images/farm.jpg' onClick={() => console.log(props.product.ProductId)} />
+      <Link to={`/product-detail/${props.product.ProductId}`}>
+      <Card.Img variant='top' src='https://vanguardrenewables.com/wp-content/uploads/2020/09/RainbowFarm-1024x726.jpg' />
+      </Link>
       <Card.Body>
         <Card.Title>
           {props.product.Name}

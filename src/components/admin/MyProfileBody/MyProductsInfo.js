@@ -1,6 +1,8 @@
 import { Container, Row, Table, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-const MyProductsInfo = () => {
+const MyProductsInfo = (props) => {
+
   return (
 
     <Container>
@@ -32,40 +34,45 @@ const MyProductsInfo = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                Yumurta
-              </td>
-              <td>
-                1
-              </td>
-              <td>
-                14.5-
-              </td>
-              <td>
-                Güzel
-              </td>
-              <td>
-                ndusad
-              </td>
-              <td>
-                <Button variant='success'>
-                  Update Product
-                </Button>
-              </td>
-              <td>
-                <Button variant='danger'>
-                  Delete Product
-                </Button>
-              </td>
-            </tr>
+            {props.products.map((product) => <tr key={props.ProductId}>
+                                               <td>
+                                                 {product.Name}
+                                               </td>
+                                               <td>
+                                                 {product.Explanation}
+                                               </td>
+                                               <td>
+                                                 {product.ProductId}
+                                               </td>
+                                               <td>
+                                                 {product.Price}
+                                               </td>
+                                               <td>
+                                                 {product.Address}
+                                               </td>
+                                               <td>
+                                                 <Link to={`/update-product-info/${product.ProductId}`}>
+                                                 <Button variant='success'>
+                                                   Update Product
+                                                 </Button>
+                                                 </Link>
+                                               </td>
+                                               <td>
+                                                 <Button variant='danger'>
+                                                   Delete Product
+                                                 </Button>
+                                               </td>
+                                             </tr>
+             )}
           </tbody>
         </Table>
       </Row>
       <Row>
+        <Link to={`/create-product/${props.producerId}`}>
         <Button variant='success'>
           Create New Product
         </Button>
+        </Link>
       </Row>
     </Container>
   )

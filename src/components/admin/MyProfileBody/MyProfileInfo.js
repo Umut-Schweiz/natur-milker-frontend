@@ -1,6 +1,7 @@
 import { Container, Row, Button, Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-const MyProfileInfo = () => {
+const MyProfileInfo = (props) => {
   return (
     <Container>
       <Row>
@@ -15,7 +16,8 @@ const MyProfileInfo = () => {
                 Name Surname
               </th>
               <th>
-                Erhan Kudretli
+                {props.producer.FirstName}
+                {props.producer.LastName}
               </th>
             </tr>
           </thead>
@@ -25,7 +27,7 @@ const MyProfileInfo = () => {
                 Email
               </th>
               <th>
-                ErhanKudretli@gmail.com
+                {props.producer.Mail}
               </th>
             </tr>
             <tr>
@@ -33,7 +35,7 @@ const MyProfileInfo = () => {
                 Phone Number
               </th>
               <th>
-                078 792 57 29
+                {props.producer.PhoneNumber}
               </th>
             </tr>
             <tr>
@@ -41,7 +43,7 @@ const MyProfileInfo = () => {
                 Company Name
               </th>
               <th>
-                Kudretli AG
+                {props.producer.CompanyName}
               </th>
             </tr>
             <tr>
@@ -49,24 +51,26 @@ const MyProfileInfo = () => {
                 Company Adress
               </th>
               <th>
-                Route d´alcantara Fribourg
+                {props.producer.Address}
               </th>
             </tr>
             <tr>
               <th>
-                Bio
+                BioFieldset
               </th>
               <th>
-                Kudretli AG 1992 yilinda kurulmustur.
+                {props.producer.BioFieldset}
               </th>
             </tr>
           </tbody>
         </Table>
       </Row>
       <Row>
+        <Link to={`/update-profile-info/${props.producer.ProducerId}`}>
         <Button variant='success'>
           Update Your Information
         </Button>
+        </Link>
       </Row>
     </Container>
 

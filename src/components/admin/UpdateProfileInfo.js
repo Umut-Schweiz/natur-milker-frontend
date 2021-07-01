@@ -1,101 +1,115 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState} from 'react'
+import { useParams } from 'react-router-dom'
 
 
 const UpdateProfileInfo = () =>{
 
-
-    //Burasi duzenlenecek
-
-    const [newPerson, setNewPerson] = useState([])
+  const { ProducerId }  = useParams()
+  console.log(ProducerId)
+   
+  const [updatedProducer, setUpdatedProducer] = useState({
+  })
   
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      fetch('http://174.138.103.233/api/employees', {
-        method: 'POST',
-        body: JSON.stringify( newPerson ),
-        headers: { 'Content-Type': 'application/json' },
-      })
-       
-    }
+  const handleSubmit = async (e) => {
+   
+    e.preventDefault()
+    fetch(`http://localhost:3005/producer/${ProducerId}`, {
+      method: 'PUT',
+      body: JSON.stringify(updatedProducer),
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
 
     return (
-        <Form onSubmit={handleSubmit}>
-        <Form.Group>
+    <Form onSubmit={handleSubmit}>
+    <Form.Group>
+      <Form.Label>
+        First Name
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({...updatedProducer, FirstName: e.target.value})}
+        name='FirstName'
+        type='text'
+        placeholder='FirstName' />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>
+        Last Name
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({...updatedProducer, LastName: e.target.value})}
+        name='LastName'
+        type='text'
+        placeholder='LastName' />
+    </Form.Group>
+    <Form.Group controlId='formBasicEmail'>
           <Form.Label>
-            First Name
+            Email Address
           </Form.Label>
           <Form.Control
-            onChange={e => setNewPerson({...newPerson, firstName: e.target.value })}
-            name='firstName'
-            type='text'
-            placeholder='Normal text' />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>
-            Last Name
-          </Form.Label>
-          <Form.Control
-            onChange={e => setNewPerson({ ...newPerson, lastName: e.target.value })}
-            name='lastName'
-            type='text'
-            placeholder='Normal text' />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>
-            Gender
-          </Form.Label>
-          <Form.Control
-            onChange={e => setNewPerson({ ...newPerson, gender: e.target.value })}
-            type='text'
-            name='gender'
-            placeholder='Normal text' />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>
-            Birth Day
-          </Form.Label>
-          <Form.Control
-            onChange={e => setNewPerson({ ...newPerson, birthday: e.target.value })}
-            type='text'
-            name='birthday'
-            placeholder='Normal text' />
-        </Form.Group>
-        <Form.Group controlId='formBasicEmail'>
-          <Form.Label>
-            Email address
-          </Form.Label>
-          <Form.Control
-            onChange={e => setNewPerson({ ...newPerson, email: e.target.value })}
-            name='email'
+            onChange={e => setUpdatedProducer({ ...updatedProducer, Mail: e.target.value })}
+            name='Mail'
             type='email'
             placeholder='Enter email' />
         </Form.Group>
-        <Form.Group>
-          <Form.Label>
-            Password
-          </Form.Label>
-          <Form.Control
-            onChange={e => setNewPerson({ ...newPerson, password: e.target.value })}
-            type='text'
-            name='password'
-            placeholder='Normal text' />
-        </Form.Group>
-        <Form.Group controlId='exampleForm.ControlTextarea1'>
-          <Form.Label>
-            About Me
-          </Form.Label>
-          <Form.Control
-            onChange={e => setNewPerson({ ...newPerson, about: e.target.value })}
-            name='about'
-            as='textarea'
-            rows={3}
-            placeholder='Normal text' />
-        </Form.Group>
-        <Button variant='primary' type='submit'>
-          Submit
-        </Button>
-      </Form>
-    )
+    <Form.Group>
+      <Form.Label>
+        Password
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({ ...updatedProducer, Password: e.target.value })}
+        type='text'
+        name='Password'
+        placeholder='Password' />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>
+        Phone Number
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({ ...updatedProducer, PhoneNumber: e.target.value })}
+        type='text'
+        name='PhoneNumber'
+        placeholder='PhoneNumber' />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>
+       Address
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({ ...updatedProducer, Address: e.target.value })}
+        type='text'
+        name='Address'
+        placeholder='Address' />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>
+       Company Name
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({ ...updatedProducer, CompanyName: e.target.value })}
+        type='text'
+        name='CompanyName'
+        placeholder='CompanyName' />
+    </Form.Group>
+    <Form.Group controlId='exampleForm.ControlTextarea1'>
+      <Form.Label>
+        Bio Fieldset
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({ ...updatedProducer,  BioFieldset: e.target.value })}
+        name='BioFieldset'
+        as='textarea'
+        rows={3}
+        placeholder='Bio' />
+    </Form.Group>
+    
+    <Button variant='primary' type='submit'>
+      Submit
+    </Button>
+    
+  </Form>
+)
 }
 export default UpdateProfileInfo

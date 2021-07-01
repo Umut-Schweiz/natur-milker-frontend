@@ -2,7 +2,8 @@ import { Container, Tab, Nav, Row, Col } from 'react-bootstrap'
 import MyProfileInfo from './MyProfileInfo'
 import MyProuductsInfo from './MyProductsInfo'
 
-const MyProfilePageBody = () => {
+const MyProfilePageBody = (props) => {
+
   return (
     <Container className='profile-body-container container-fluid'>
       <Tab.Container id='left-tabs-example' defaultActiveKey='first'>
@@ -24,10 +25,10 @@ const MyProfilePageBody = () => {
           <Col sm={9}>
           <Tab.Content>
             <Tab.Pane eventKey='first'>
-              <MyProfileInfo/>
+              <MyProfileInfo producer={props.producer} />
             </Tab.Pane>
             <Tab.Pane eventKey='second'>
-              <MyProuductsInfo/>
+              <MyProuductsInfo producerId={props.producerId} products={props.products} />
             </Tab.Pane>
           </Tab.Content>
           </Col>

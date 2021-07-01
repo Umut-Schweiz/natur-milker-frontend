@@ -1,7 +1,7 @@
 import { Container, Col, Row, Button, Image } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const MyProfilePageHeader = () => {
+const MyProfilePageHeader = (props) => {
   return (
 
     <Container className='MyProfile-header-container' fluid>
@@ -16,7 +16,9 @@ const MyProfilePageHeader = () => {
         </Button>
         </Link>
         </Col>
-        <Col md='auto'> Name Surname
+        <Col md='auto'>
+        {props.producer.FirstName}
+        {props.producer.LastName}
         </Col>
         <Col md='auto'> LogOutButton
         </Col>

@@ -4,19 +4,18 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import ProductSearchResult from './components/home/ProductsSearchResults'
 import MyProfilePage from './components/admin/MyProfilePage'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import CreateNewProduct from './components/admin/CreateNewProduct'
+import UpdateProfileInfo from './components/admin/UpdateProfileInfo'
+import UpdateProductInfo from './components/admin/UpdateProductInfo'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 const App =  () => {
  
   const [productsforHomePage, setProductForHomepage] = useState([])
-  const [productsforProductDetailsPage, setProductForDetails] = useState([])
-    
+      
   const APP_URL_HOME_PAGE = `http://localhost:3005/products/homepage`
-  const APP_URL_DETAILS_PAGE = `http://localhost:3005/products/productdetails`
- 
-
-
+  
   useEffect(() => {
     loadProductDataForHomepage()
   },[])
@@ -28,17 +27,7 @@ const App =  () => {
   }
 
   
-  useEffect(() => {
-    loadProductDataForDetails()
-  },[])
 
-  const loadProductDataForDetails = async () => {
-    const response = await fetch(APP_URL_DETAILS_PAGE)
-    const data = await response.json()
-    setProductForDetails(data)
-  }
-
-  
   return (
     <>
 
@@ -52,19 +41,22 @@ const App =  () => {
           <Route path='/product-search-result' >
             <ProductSearchResult  product={productsforHomePage} />
           </Route>
-          <Route path='/product-detail' >
-            <ProductDetail   product={productsforProductDetailsPage} />
+          <Route path='/product-detail/:productId'  >
+            <ProductDetail product={productsforHomePage} />
           </Route>
           <Route path='/my-profile-page'>
             <MyProfilePage/>
           </Route>
-           {/*
-          <Route path='/update-profile-info'>
+          <Route path='/create-product/:producerId'>
+            <CreateNewProduct/>
+          </Route> 
+           
+          <Route path='/update-profile-info/:ProducerId'>
             <UpdateProfileInfo/>
           </Route>
-          <Route path='/create-product'>
-            <UpdateProfileInfo/>
-          </Route> */}
+          <Route path='/update-product-info/:ProductId'>
+            <UpdateProductInfo/>
+          </Route>
         </Switch>
       </div>
       <Footer/>

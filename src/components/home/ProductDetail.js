@@ -1,8 +1,27 @@
 import { Container, Row, Col, Tabs, Tab, Carousel } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import ProductList from './ProductList'
 
-const DetailedProduct = () => {
+const DetailedProduct = (props) => {
 
+  const { productId }  = useParams()
+  const [product, setProduct] = useState([])
+
+  const APP_URL_HOME_PAGE = `http://localhost:3005/products/${productId}`
+
+  useEffect(() => {
+    loadProduct()
+  },[])
+
+  const loadProduct= async () => {
+    const response = await fetch(APP_URL_HOME_PAGE)
+    const data = await response.json()
+    setProduct(data)
+  }
+  
   return (
+    <>
     <Container className='detailed-product'>
       <Row>
         <h3>Product Details</h3>
@@ -11,32 +30,35 @@ const DetailedProduct = () => {
         <Col>
         <Carousel fade>
           <Carousel.Item>
-            <img className='d-block w-100' src='./images/farm-1.jpg' alt='First slide' />
+            <img className='d-block w-100' src='https://cam-techsecurity.co.uk/wp-content/uploads/2019/11/farm-security-scaled.jpg' alt='First slide' />
           </Carousel.Item>
           <Carousel.Item>
-            <img className='d-block w-100' src='./images/farm-2.jpg' alt='Second slide' />
+            <img className='d-block w-100' src='https://cam-techsecurity.co.uk/wp-content/uploads/2019/11/farm-security-scaled.jpg' alt='Second slide' />
           </Carousel.Item>
           <Carousel.Item>
-            <img className='d-block w-100' src='./images/farm-3.jpg' alt='Third slide' />
+            <img className='d-block w-100' src='https://cam-techsecurity.co.uk/wp-content/uploads/2019/11/farm-security-scaled.jpg' alt='Third slide' />
           </Carousel.Item>
         </Carousel>
         </Col>
         <Col>
-        <Tabs defaultActiveKey='profile' id='uncontrolled-tab-example'>
+        <Tabs defaultActiveKey='description' id='uncontrolled-tab-example'>
           <Tab eventKey='description' title='Description'>
-            sdasdasd
+            Product Name : {product.Name}
+            Product Price : {product.Price}
+            Product Detail : {product.Explanation}
           </Tab>
           <Tab eventKey='contact' title='Contact'>
-            dasdasda
+              {product.Address}
           </Tab>
           <Tab eventKey='navigation' title='Navigation'>
-            sdasdasdada
+               {product.Address}
           </Tab>
         </Tabs>
         </Col>
       </Row>
     </Container>
-
+    <ProductList product={props.product}/>
+    </>
   )
 }
 export default DetailedProduct
