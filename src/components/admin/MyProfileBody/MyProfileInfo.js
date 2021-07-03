@@ -67,7 +67,7 @@ const MyProfileInfo = (props) => {
       </Row>
       <Row>
         <Link to={`/update-profile-info/${props.producer.ProducerId}`}>
-        <Button variant='success'>
+        <Button className='btn-button' variant='success'>
           Update Your Information
         </Button>
         </Link>

@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 const MyProfilePageHeader = (props) => {
   return (
 
-    <Container className='MyProfile-header-container' fluid>
+    <Container className='MyProfile-header-container m-5' fluid>
       <Row>
         <Col>
-        <Image src='./images/Natur Milker Logo.png' rounded className='logo' />
+        
         </Col>
         <Col md='auto'>
         <Link to='/'>
-        <Button variant='success'>
+        <Button className='btn-button' variant='success'>
           GO Home
         </Button>
         </Link>
@@ -20,7 +20,10 @@ const MyProfilePageHeader = (props) => {
         {props.producer.FirstName}
         {props.producer.LastName}
         </Col>
-        <Col md='auto'> LogOutButton
+        <Col md='auto'> 
+        <Button className='btn-button' variant='success'>
+          Logout 
+        </Button>
         </Col>
       </Row>
     </Container>

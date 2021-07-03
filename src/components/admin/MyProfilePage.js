@@ -9,7 +9,7 @@ const MyProfilePage = () => {
 const [producer, setProducer] = useState([])
 const [products, setProducts] = useState([])
 
-const producerId = '456'
+const producerId = '21'
 
 const APP_URL_PRODUCER = `http://localhost:3005/producer/${producerId}`
 const APP_URL_PRODUCER_ALL_PRODUCTS = `http://localhost:3005/products/producer/${producerId}`

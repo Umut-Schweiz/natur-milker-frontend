@@ -1,27 +1,58 @@
-.logo {
-    width: 250px;
-    height: 120px;
-}
-
-
 /****************************************
 FOOTER
 ******************************************/
 footer {
-    background-color: cornflowerblue;
+    background-color: #80A142;
     text-align: center;
     color: white;
-    padding: 30px 0px;
+    padding: 15px;
 }
+
+.socialIcon {
+    margin-right: 12px;
+}
+
+.socialIcon :hover {
+    opacity: 95%;
+}
+
+
+
+
 /****************************************
 HOMEPAGE
 ******************************************/
 .homepage-registerbutton {
+    background-color: #658628 !important;
     margin-top: 30px;
-    
 }
+
+.btn-button {
+    background-color: #658628 !important;
+}
+
+.btn-button:hover {
+    opacity: .95;
+}
+
+
+.homepage-registerbutton:hover {
+    opacity: .95;
+}
+
+.Temporary-Login {
+    background-color: #658628 !important;
+    margin-top: 30px;
+}
+
+.Temporary-Login:hover {
+    opacity: .95;
+}
+
 .home-page-header-container {
-    background-color: rgb(238, 234, 234);
+    background-color: #ffffff;
+    box-shadow: 0px 15px 18px 4px rgba(128, 161, 66, 0.5);
+
 }
 
 .logo {
@@ -33,14 +64,14 @@ HOMEPAGE
     text-align: center;
 }
 
-.searchBoxAreaMain{
+.searchBoxAreaMain {
     margin-top: 7vw;
-    margin-bottom: 6vw ;
-    
+    margin-bottom: 6vw;
+
 }
 
-.advicedProductsArea{
-        margin-bottom: 6vw ;
+.advicedProductsArea {
+    margin-bottom: 6vw;
 }
 
 /****************************************
@@ -49,5 +80,6 @@ My Profil Body
 .profile-body-container {
     height: 60vh;
     margin-bottom: 2vh;
-    border: 3px solid red;
+    border: 3px solid #80A142;
+    padding: 10px;
 }
