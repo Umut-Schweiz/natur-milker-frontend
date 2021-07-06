@@ -4,30 +4,30 @@ import { Link } from 'react-router-dom'
 const SearchBoxArea = () => {
   return (
     <Container>
-      <h2 id='searchboxtext'>Find Your Milker</h2>
+      <h2 className='mb-5' id='searchboxtext'>Find Your Natural Products</h2>
       <Row className='justify-content-md-center'>
-        <Col xs lg='2'>
+        <Col  lg='3'>
         <Form.Group>
           <Form.Control as='select' size='lg'>
-            <option selected>
+            <option className='option' selected>
               Cantons
             </option>
-            <option>
-              *BERN
+            <option className='option'>
+              BERN
+            </option>
+            <option className='option'>
+              ZURICH
             </option>
             <option>
-              *ZURICH
+              LUZERN
             </option>
             <option>
-              *LUZERN
-            </option>
-            <option>
-              *GENF
+              GENEVE
             </option>
           </Form.Control>
         </Form.Group>
         </Col>
-        <Col md='auto'>
+        <Col lg='3' md='auto'>
         <Form.Group>
           <Form.Control as='select' size='lg'>
             <option selected>
@@ -48,7 +48,7 @@ const SearchBoxArea = () => {
           </Form.Control>
         </Form.Group>
         </Col>
-        <Col xs lg='2'>
+        <Col xs lg='1'>
         <Link to='/product-search-result'>
         <Button variant='outline-secondary' className='button-search' size='lg'>
           Search

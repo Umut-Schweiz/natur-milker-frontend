@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 /****************************************
 FOOTER
 ******************************************/
@@ -62,10 +64,14 @@ HOMEPAGE
 
 #searchboxtext {
     text-align: center;
+    font-family: 'Righteous', cursive;
+    text-shadow: 2px 2px rgb(206, 206, 206);
+    font-size: 6vh;
+    color: #445f11;
 }
 
 .searchBoxAreaMain {
-    margin-top: 7vw;
+    margin-top: 4vw;
     margin-bottom: 6vw;
 
 }
@@ -82,4 +88,29 @@ My Profil Body
     margin-bottom: 2vh;
     border: 3px solid #80A142;
     padding: 10px;
+}
+
+.button-search:hover {
+    background-color: #658628 !important;
+}
+
+/****************************************
+From Control
+******************************************/
+
+
+
+.form-control:not(active) {
+    color: #658628 !important;
+    font-weight: bold;
+}
+
+.form-control:focus {
+    color: rgb(0, 0, 0) !important;
+    ;
+}
+
+.form-control:focus {
+    color: rgb(0, 0, 0) !important;
+
 }
