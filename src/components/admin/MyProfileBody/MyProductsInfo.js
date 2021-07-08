@@ -1,5 +1,9 @@
 import { Container, Row, Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { AiFillDelete } from 'react-icons/ai';
+import {  GrUpdate } from 'react-icons/gr';
+
+
 
 const MyProductsInfo = (props) => {
 
@@ -50,17 +54,16 @@ const MyProductsInfo = (props) => {
                                                <td>
                                                  {product.Address}
                                                </td>
-                                               <td>
+                                               <td className='d-flex justify-content-center '>
                                                  <Link to={`/update-product-info/${product.ProductId}`}>
-                                                 <Button variant='success'>
-                                                   Update Product
-                                                 </Button>
-                                                 </Link>
+                                                
+                                               <GrUpdate size={30} />
+
+
+                                                 </Link >
                                                </td>
                                                <td>
-                                                 <Button variant='danger'>
-                                                   Delete Product
-                                                 </Button>
+                                               <AiFillDelete size={30}/>
                                                </td>
                                              </tr>
              )}
@@ -69,7 +72,7 @@ const MyProductsInfo = (props) => {
       </Row>
       <Row>
         <Link to={`/create-product/${props.producerId}`}>
-        <Button variant='success'>
+        <Button className='btn-button' variant='success'>
           Create New Product
         </Button>
         </Link>

@@ -11,9 +11,7 @@ const MyProfilePageHeader = (props) => {
         </Col>
         <Col md='auto'>
         <Link to='/'>
-        <Button className='btn-button' variant='success'>
-          GO Home
-        </Button>
+        
         </Link>
         </Col>
         <Col md='auto'>
