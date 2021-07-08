@@ -22,9 +22,9 @@ const DetailedProduct = (props) => {
   
   return (
     <>
-    <Container className='detailed-product'>
-      <Row>
-        <h3>Product Details</h3>
+    <Container className='border shadow  p-3 detailed-product mt-5 mb-5'>
+      <Row className='detailed-Product-header ml-5 mb-2'>
+        <h3>{product.Name} </h3>
       </Row>
       <Row>
         <Col>

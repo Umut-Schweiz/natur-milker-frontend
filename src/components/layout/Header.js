@@ -7,7 +7,9 @@ const Header = () => {
     <Container className='home-page-header-container' fluid>
       <Row>
         <Col>
+        <Link to='/'>
         <Image src='./images/Natur Milker Logo.png' rounded className='logo' />
+        </Link>
         </Col>
         <Col md='auto'>
         <LoginButton/>

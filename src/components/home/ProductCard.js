@@ -5,7 +5,7 @@ const ProductCard = (props) => {
 
   return (
 
-    <Card key={props.index}>
+    <Card className='SearchedAreaAdvicedProducts mb-5'  key={props.index}>
       <Link to={`/product-detail/${props.product.ProductId}`}>
       <Card.Img variant='top' src='https://vanguardrenewables.com/wp-content/uploads/2020/09/RainbowFarm-1024x726.jpg' />
       </Link>
@@ -14,17 +14,13 @@ const ProductCard = (props) => {
           {props.product.Name}
         </Card.Title>
         <Card.Text>
-          Kanton:
+          <small className='text-muted'>{props.product.Explanation}</small>
           <br></br>
-          {props.product.Address}
-          <br></br>
-          Price:
-          <br></br>
-          {props.product.Price} CH
+           Kanton: {props.product.Address}
         </Card.Text>
       </Card.Body>
       <Card.Footer>
-        <small className='text-muted'>{props.product.Explanation}</small>
+      Price:{props.product.Price} CH
       </Card.Footer>
     </Card>
 

@@ -15,8 +15,12 @@ const ProductSearchResults = (props) => {
       <Row className='searchedProductsArea'>
         <Col>
         <Container>
+          <Row className='border border-success h-100'>
+          <h3>Here your search Results</h3>
+
+          </Row>
           <Row>
-            {props.product.map((product, index) => <Col sm={4} key={index}>
+            {props.product.map((product, index) => <Col sm={3} key={index}>
                                                    <ProductCard product={product} />
                                                    </Col>
              )}

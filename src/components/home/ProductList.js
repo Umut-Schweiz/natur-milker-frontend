@@ -7,26 +7,22 @@ const AdvicedProductsArea = (props) => {
     <Container>
       <Row>
         {props.product.map((product, index) => <Col sm={4} key={index}>
-                                               <Card key={props.index}>
+                                               <Card className='Product-Cards mb-5' key={props.index}>
                                                  <Link to={`/product-detail/${product.ProductId}`}>
                                                  <Card.Img variant='top' src='https://vanguardrenewables.com/wp-content/uploads/2020/09/RainbowFarm-1024x726.jpg' />
                                                  </Link>
                                                  <Card.Body>
                                                    <Card.Title>
-                                                     {product.Name}
+                                                    <h4> {product.Name}</h4>
                                                    </Card.Title>
                                                    <Card.Text>
-                                                     Kanton:
+                                                   <small className='text-muted'>{product.Explanation}</small>
                                                      <br></br>
-                                                     {product.Address}
-                                                     <br></br>
-                                                     Price:
-                                                     <br></br>
-                                                     {product.Price} CH
+                                                     Kanton: {product.Address} 
                                                    </Card.Text>
                                                  </Card.Body>
                                                  <Card.Footer>
-                                                   <small className='text-muted'>{product.Explanation}</small>
+                                                 Price: {product.Price} CHF 
                                                  </Card.Footer>
                                                </Card>
                                                </Col>
