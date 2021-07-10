@@ -152,3 +152,24 @@ Searhed Area Adviced Product Cards
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
+
+/****************************************
+Detailed Products
+******************************************/
+
+.nav-tabs .nav-link {
+    color: #445f11 !important;
+
+}
+
+#uncontrolled-tab-example-tabpane-description {
+    margin-top: 30px;
+}
+
+#uncontrolled-tab-example-tabpane-contact {
+    margin-top: 15px;
+}
+
+#uncontrolled-tab-example-tabpane-navigation {
+    margin-top: 15px;
+}
