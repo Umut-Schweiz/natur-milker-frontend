@@ -21,7 +21,9 @@ const UpdateProduct = () =>{
   }
 
     return (
-      <Form onSubmit={handleSubmit}>
+      <div className='d-flex justify-content-center'>
+      <Form className='m-5 d-block w-25' onSubmit={handleSubmit}>
+      <h3 className='updatebio-form-header mb-3'>Update Your Product Info</h3>
       <Form.Group>
         <Form.Label>
           Name
@@ -63,10 +65,11 @@ const UpdateProduct = () =>{
           rows={3}
           placeholder='Normal text' />
       </Form.Group>
-      <Button variant='primary' type='submit'>
+      <Button className='btn-button' variant='primary' type='submit'>
         Submit
       </Button>
     </Form>
+    </div>
   )
 }
 export default UpdateProduct

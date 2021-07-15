@@ -22,7 +22,9 @@ const UpdateProfileInfo = () =>{
   }
 
     return (
-    <Form onSubmit={handleSubmit}>
+      <div className='d-flex justify-content-center'>
+    <Form className='m-5 d-block w-25' onSubmit={handleSubmit}>
+      <h3 className='updatebio-form-header mb-3'>Update Your Personel Informations</h3>
     <Form.Group>
       <Form.Label>
         First Name
@@ -105,11 +107,12 @@ const UpdateProfileInfo = () =>{
         placeholder='Bio' />
     </Form.Group>
     
-    <Button variant='primary' type='submit'>
-      Submit
+    <Button className='btn-button' variant='primary' type='submit'>
+      Update
     </Button>
     
   </Form>
+  </div>
 )
 }
 export default UpdateProfileInfo
