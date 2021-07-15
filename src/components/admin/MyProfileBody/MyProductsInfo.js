@@ -2,6 +2,7 @@ import { Container, Row, Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { AiFillDelete } from 'react-icons/ai';
 import {  GrUpdate } from 'react-icons/gr';
+import DeleteProduct from '../DeleteProduct' 
 
 
 
@@ -63,7 +64,9 @@ const MyProductsInfo = (props) => {
                                                  </Link >
                                                </td>
                                                <td>
+                                                 <Link onClick={DeleteProduct}>
                                                <AiFillDelete size={30}/>
+                                               </Link>
                                                </td>
                                              </tr>
              )}

@@ -19,9 +19,9 @@ const ProductCard = (props) => {
            Kanton: {props.product.Address}
         </Card.Text>
       </Card.Body>
-      <Card.Footer>
+      <Card>
       Price:{props.product.Price} CH
-      </Card.Footer>
+      </Card>
     </Card>
 
   )
