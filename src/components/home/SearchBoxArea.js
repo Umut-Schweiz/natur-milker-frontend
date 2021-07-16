@@ -1,14 +1,22 @@
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+const selectedCanton = (e) => {
+  console.log(e)
+}
+
+const selectedProductType = (e) => {
+  console.log(e)
+}
+
 const SearchBoxArea = () => {
   return (
     <Container>
       <h2 className='mb-5' id='searchboxtext'>Find Your Natural Products</h2>
       <Row className='justify-content-md-center'>
-        <Col  lg='3'>
+        <Col lg='3'>
         <Form.Group>
-          <Form.Control as='select' size='lg'>
+          <Form.Control as='select' size='lg' onChange={e => selectedCanton(e.target.value)}>
             <option className='option' selected>
               Cantons
             </option>
@@ -18,10 +26,10 @@ const SearchBoxArea = () => {
             <option className='option'>
               ZURICH
             </option>
-            <option>
+            <option className='option'>
               LUZERN
             </option>
-            <option>
+            <option className='option'>
               GENEVE
             </option>
           </Form.Control>
@@ -29,7 +37,7 @@ const SearchBoxArea = () => {
         </Col>
         <Col lg='3' md='auto'>
         <Form.Group>
-          <Form.Control as='select' size='lg'>
+          <Form.Control as='select' size='lg' onChange={e => selectedProductType(e.target.value)}>
             <option selected>
               Products
             </option>
@@ -37,20 +45,21 @@ const SearchBoxArea = () => {
               *Milk
             </option>
             <option>
-              *Egg
+              *Vegatables
             </option>
             <option>
-              *Apple
-            </option>
-            <option>
-              *Orange
+              *Fruits
             </option>
           </Form.Control>
         </Form.Group>
         </Col>
         <Col xs lg='1'>
         <Link to='/product-search-result'>
-        <Button variant='outline-secondary' className='button-search' size='lg'>
+        <Button
+          variant='outline-secondary'
+          className='button-search'
+          size='lg'
+          type='submit'>
           Search
         </Button>
         </Link>

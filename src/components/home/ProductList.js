@@ -13,16 +13,24 @@ const AdvicedProductsArea = (props) => {
                                                  </Link>
                                                  <Card.Body>
                                                    <Card.Title>
-                                                    <h4> {product.Name}</h4>
+                                                     <h4>{product.Name}</h4>
+                                                     <br></br>
+                                                     Product Type:
+                                                     {props.product.ProductType}
                                                    </Card.Title>
                                                    <Card.Text>
-                                                   <small className='text-muted'>{product.Explanation}</small>
+                                                     <small className='text-muted'>{props.product.Explanation}</small>
                                                      <br></br>
-                                                     Kanton: {product.Address} 
+                                                     Canton:
+                                                     {props.product.Canton}
+                                                     <br></br>
+                                                     Address:
+                                                     {props.product.Address}
                                                    </Card.Text>
                                                  </Card.Body>
                                                  <Card.Footer>
-                                                 Price: {product.Price} CHF 
+                                                   Price:
+                                                   {product.Price} CHF
                                                  </Card.Footer>
                                                </Card>
                                                </Col>

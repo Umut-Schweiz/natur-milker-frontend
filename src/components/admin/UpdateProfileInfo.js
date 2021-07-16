@@ -1,13 +1,19 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState} from 'react'
 import { useParams } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 
 const UpdateProfileInfo = () =>{
 
-  const { ProducerId }  = useParams()
-  console.log(ProducerId)
-   
+  const { getAccessTokenSilently } = useAuth0();
+
+  const [token, setToken] = useState();
+
+  getAccessTokenSilently().then((token) => setToken(token));
+
+
+  const { ProducerId }  = useParams()  
   const [updatedProducer, setUpdatedProducer] = useState({
   })
   
@@ -17,43 +23,18 @@ const UpdateProfileInfo = () =>{
     fetch(`http://localhost:3005/producer/${ProducerId}`, {
       method: 'PUT',
       body: JSON.stringify(updatedProducer),
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     })
   }
 
     return (
-    <Form onSubmit={handleSubmit}>
-    <Form.Group>
-      <Form.Label>
-        First Name
-      </Form.Label>
-      <Form.Control
-        onChange={e => setUpdatedProducer({...updatedProducer, FirstName: e.target.value})}
-        name='FirstName'
-        type='text'
-        placeholder='FirstName' />
-    </Form.Group>
-    <Form.Group>
-      <Form.Label>
-        Last Name
-      </Form.Label>
-      <Form.Control
-        onChange={e => setUpdatedProducer({...updatedProducer, LastName: e.target.value})}
-        name='LastName'
-        type='text'
-        placeholder='LastName' />
-    </Form.Group>
-    <Form.Group controlId='formBasicEmail'>
-          <Form.Label>
-            Email Address
-          </Form.Label>
-          <Form.Control
-            onChange={e => setUpdatedProducer({ ...updatedProducer, Mail: e.target.value })}
-            name='Mail'
-            type='email'
-            placeholder='Enter email' />
-        </Form.Group>
-    <Form.Group>
+      <div className='d-flex justify-content-center'>
+    <Form className='m-5 d-block w-25' onSubmit={handleSubmit}>
+    <h3 className='updatebio-form-header mb-3'>Update Your Personel Informations</h3>
+       <Form.Group>
       <Form.Label>
         Password
       </Form.Label>
@@ -105,11 +86,12 @@ const UpdateProfileInfo = () =>{
         placeholder='Bio' />
     </Form.Group>
     
-    <Button variant='primary' type='submit'>
+    <Button className='btn-button' variant='primary' type='submit'>
       Submit
     </Button>
     
   </Form>
+  </div>
 )
 }
 export default UpdateProfileInfo

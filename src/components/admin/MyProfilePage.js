@@ -2,38 +2,59 @@ import { Col, Row, Container } from 'react-bootstrap'
 import MyProfileHeader from './MyProfileHeader'
 import MyProfileBody from './MyProfileBody/MyProfileBody'
 import { useState, useEffect } from 'react'
-
+import { useAuth0 } from '@auth0/auth0-react'
+import * as producerElement from '../services/producer'
 
 const MyProfilePage = () => {
 
-const [producer, setProducer] = useState([])
-const [products, setProducts] = useState([])
+const [producerInfo, setProducerInfo] = useState({})
+const [products, setProducts] = useState([]);
+const [refreshPage, setRefreshPage] = useState(false)
 
-const producerId = '21'
 
-const APP_URL_PRODUCER = `http://localhost:3005/producer/${producerId}`
-const APP_URL_PRODUCER_ALL_PRODUCTS = `http://localhost:3005/products/producer/${producerId}`
-
-useEffect(() => {
-  loadProducer()
-},[])
-
-const loadProducer= async () => {
-  const response = await fetch(APP_URL_PRODUCER)
-  const data = await response.json()
-  setProducer(data)
-}
+const { user } = useAuth0()
+const producerId= user.sub
+const firstName = user.given_name
+const lastName = user.family_name
+const email = user.email
 
 useEffect(() => {
-  loadProducts()
-},[])
+  
+  async function showProducts() {
+    const products = await producerElement.getAllProducts(producerId);
 
-const loadProducts= async () => {
-  const response = await fetch(APP_URL_PRODUCER_ALL_PRODUCTS)
-  const data = await response.json()
-  setProducts(data)
-}
+    console.log(products)
+    if (products) {
+      return setProducts(products);
+    }
+  }
 
+  async function controlProducer () {
+    const producer = await producerElement.getProducerbyId(producerId);
+    
+    if (producer.ProducerId){
+     return setProducerInfo(producer)
+   }else {
+       const newProducer = {
+       ProducerId : producerId,
+       FirstName : firstName,
+       LastName : lastName,
+       Mail : email,
+
+      }
+      return fetch('http://localhost:3005/producer', {
+         method: 'POST',
+         body: JSON.stringify(newProducer),
+         headers: { 'Content-Type': 'application/json' },
+       }).then(()=>  producerElement.getProducerbyId(producerId)).then(()=>setRefreshPage(true))
+
+   }
+  }
+  
+        controlProducer()
+        showProducts()
+
+        },[producerId,firstName,lastName,email,refreshPage ]);
 
 
   return (
@@ -41,12 +62,12 @@ const loadProducts= async () => {
     <Container>
       <Row>
         <Col>
-        <MyProfileHeader producer={producer} />
+        <MyProfileHeader producerInfo={producerInfo} />
         </Col>
       </Row>
       <Row>
         <Col>
-        <MyProfileBody producerId={producerId} products={products} producer={producer}/>
+        <MyProfileBody producerInfo={producerInfo} products={products} />
         </Col>
       </Row>
     </Container>

@@ -25,10 +25,10 @@ const MyProfilePageBody = (props) => {
           <Col sm={9}>
           <Tab.Content>
             <Tab.Pane eventKey='first'>
-              <MyProfileInfo producer={props.producer} />
+              <MyProfileInfo producer={props.producerInfo} />
             </Tab.Pane>
             <Tab.Pane eventKey='second'>
-              <MyProuductsInfo producerId={props.producerId} products={props.products} />
+              <MyProuductsInfo producerId={props.producerInfo.ProducerId} products={props.products} />
             </Tab.Pane>
           </Tab.Content>
           </Col>
