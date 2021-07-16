@@ -1,13 +1,19 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState} from 'react'
 import { useParams } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 
 const UpdateProfileInfo = () =>{
 
-  const { ProducerId }  = useParams()
-  console.log(ProducerId)
-   
+  const { getAccessTokenSilently } = useAuth0();
+
+  const [token, setToken] = useState();
+
+  getAccessTokenSilently().then((token) => setToken(token));
+
+
+  const { ProducerId }  = useParams()  
   const [updatedProducer, setUpdatedProducer] = useState({
   })
   
@@ -17,13 +23,20 @@ const UpdateProfileInfo = () =>{
     fetch(`http://localhost:3005/producer/${ProducerId}`, {
       method: 'PUT',
       body: JSON.stringify(updatedProducer),
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     })
   }
 
     return (
       <div className='d-flex justify-content-center'>
     <Form className='m-5 d-block w-25' onSubmit={handleSubmit}>
+
+    <h3 className='updatebio-form-header mb-3'>Update Your Personel Informations</h3>
+       <Form.Group>
+
       <h3 className='updatebio-form-header mb-3'>Update Your Personel Informations</h3>
     <Form.Group>
       <Form.Label>
@@ -56,6 +69,7 @@ const UpdateProfileInfo = () =>{
             placeholder='Enter email' />
         </Form.Group>
     <Form.Group>
+
       <Form.Label>
         Password
       </Form.Label>

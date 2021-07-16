@@ -2,15 +2,20 @@ import { Form, Button } from 'react-bootstrap'
 import { useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid';
+import { useAuth0 } from '@auth0/auth0-react'
 
 
 const CreateNewProduct = () =>{
 
+  const { getAccessTokenSilently } = useAuth0();
 
-    const { producerId }  = useParams()
-   
-    const [newProduct, setNewProduct] = useState({
-    })
+  const [token, setToken] = useState();
+
+  getAccessTokenSilently().then((token) => setToken(token));
+
+  
+  const { producerId }  = useParams()
+  const [newProduct, setNewProduct] = useState([])
     
     const handleSubmit = async (e) => {
      
@@ -18,12 +23,17 @@ const CreateNewProduct = () =>{
       fetch('http://localhost:3005/products', {
         method: 'POST',
         body: JSON.stringify(newProduct),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       })
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+      <div className='d-flex justify-content-center'>
+        <Form className='m-5 d-block w-25' onSubmit={handleSubmit}>
+        <h3 className='updatebio-form-header mb-3'>Create New Product</h3>
         <Form.Group>
           <Form.Label>
             Name
@@ -43,8 +53,27 @@ const CreateNewProduct = () =>{
             type='text'
             name='Price'
             placeholder='Normal text' />
-        </Form.Group>
-        <Form.Group>
+        </Form.Group>   
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Product Type select</Form.Label>
+            <Form.Control as="select" onChange={e => setNewProduct({ ...newProduct, ProductType: e.target.value })} >
+              <option>Milk</option>
+              <option>Fruit</option>
+              <option>Vegetables</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect2">
+          <Form.Label>Canton select</Form.Label>
+            <Form.Control as="select"  onChange={e => setNewProduct({ ...newProduct, Canton: e.target.value })} >
+              <option>Zurich</option>
+              <option>Chur</option>
+              <option>Lozan</option>
+              <option>Basel</option>
+              <option>Freiburg</option>
+            </Form.Control>
+          </Form.Group>
+          
+         <Form.Group>
           <Form.Label>
            Address
           </Form.Label>
@@ -69,6 +98,7 @@ const CreateNewProduct = () =>{
           Submit
         </Button>
       </Form>
+      </div>
     )
 }
 export default CreateNewProduct

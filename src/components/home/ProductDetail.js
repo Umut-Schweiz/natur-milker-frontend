@@ -12,7 +12,7 @@ const DetailedProduct = (props) => {
 
   useEffect(() => {
     loadProduct()
-  },[])
+  },[productId])
 
   const loadProduct= async () => {
     const response = await fetch(APP_URL_HOME_PAGE)
@@ -42,17 +42,19 @@ const DetailedProduct = (props) => {
         </Col>
         <Col>
         <Tabs defaultActiveKey='description' id='uncontrolled-tab-example'>
-          <Tab eventKey='description' title='Description'>
+
+        <Tab eventKey='description' title='Description'>
              Name : {product.Name}
             <br></br>
-            <br></br>
+            Product Type : {product.ProductType}
+    <br></br>
              Price : {product.Price}
              <br></br>
              <br></br>
              Detail : {product.Explanation}
           </Tab>
           <Tab eventKey='contact' title='Contact'>
-              {product.Address}
+              {product.Canton}
           </Tab>
           <Tab eventKey='navigation' title='Navigation'>
                {product.Address}

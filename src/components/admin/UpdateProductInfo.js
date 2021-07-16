@@ -1,9 +1,18 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState} from 'react'
 import { useParams } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 
 const UpdateProduct = () =>{
+
+
+  const { getAccessTokenSilently } = useAuth0();
+
+  const [token, setToken] = useState();
+
+  getAccessTokenSilently().then((token) => setToken(token));
+
 
   const { ProductId }  = useParams()
      
@@ -16,7 +25,10 @@ const UpdateProduct = () =>{
     fetch(`http://localhost:3005/products/${ProductId}`, {
       method: 'PUT',
       body: JSON.stringify(updatedProduct),
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     })
   }
 
@@ -44,6 +56,25 @@ const UpdateProduct = () =>{
           name='Price'
           placeholder='Normal text' />
       </Form.Group>
+     
+      <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Product Type select</Form.Label>
+            <Form.Control as="select" onChange={e => setUpdatedProduct({ ...updatedProduct, ProductType: e.target.value })} >
+              <option>Milk</option>
+              <option>Fruit</option>
+              <option>Vegetables</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect2">
+          <Form.Label>Canton select</Form.Label>
+            <Form.Control as="select"  onChange={e => setUpdatedProduct({ ...updatedProduct, Canton: e.target.value })} >
+              <option>Zurich</option>
+              <option>Chur</option>
+              <option>Lozan</option>
+              <option>Basel</option>
+              <option>Freiburg</option>
+            </Form.Control>
+          </Form.Group>
       <Form.Group>
         <Form.Label>
          Address

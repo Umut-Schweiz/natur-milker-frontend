@@ -9,6 +9,12 @@ import UpdateProfileInfo from './components/admin/UpdateProfileInfo'
 import UpdateProductInfo from './components/admin/UpdateProductInfo'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useAuth0 } from "@auth0/auth0-react";
+import Loading from './components/auth/Loading'
+
+
+import ProtectedRoute from "./components/auth/protected-route";
+
 
 const App =  () => {
  
@@ -26,10 +32,14 @@ const App =  () => {
     setProductForHomepage(data)
   }
 
-  
+  const { isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
-    <>
+    
 
     <Router>
     <Header/>
@@ -44,12 +54,12 @@ const App =  () => {
           <Route path='/product-detail/:productId'  >
             <ProductDetail product={productsforHomePage} />
           </Route>
-          <Route path='/my-profile-page'>
-            <MyProfilePage/>
-          </Route>
+       
           <Route path='/create-product/:producerId'>
             <CreateNewProduct/>
-          </Route> 
+          </Route>
+
+          <ProtectedRoute path="/my-profile-page" component={MyProfilePage} />
            
           <Route path='/update-profile-info/:ProducerId'>
             <UpdateProfileInfo/>
@@ -62,7 +72,7 @@ const App =  () => {
       <Footer/>
     </Router>
     
-    </>
+    
   )
 }
 

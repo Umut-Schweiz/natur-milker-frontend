@@ -1,27 +1,15 @@
-import { Container, Col, Row, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+
+import { Container, Col, Row, Badge } from 'react-bootstrap'
+
 
 const MyProfilePageHeader = (props) => {
+
   return (
 
     <Container className='MyProfile-header-container m-5' fluid>
       <Row>
-        <Col>
-        
-        </Col>
         <Col md='auto'>
-        <Link to='/'>
-        
-        </Link>
-        </Col>
-        <Col md='auto'>
-        {props.producer.FirstName}
-        {props.producer.LastName}
-        </Col>
-        <Col md='auto'> 
-        <Button className='btn-button' variant='success'>
-          Logout 
-        </Button>
+        <h1><Badge variant='secondary'> {props.producerInfo.FirstName} {props.producerInfo.LastName} </Badge></h1>
         </Col>
       </Row>
     </Container>
