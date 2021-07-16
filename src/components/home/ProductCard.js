@@ -28,10 +28,12 @@ const ProductCard = (props) => {
           {props.product.Address}
         </Card.Text>
       </Card.Body>
+
       <Card.Footer>
         Price:
         {props.product.Price} CH
       </Card.Footer>
+
     </Card>
 
   )
