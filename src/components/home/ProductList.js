@@ -16,19 +16,19 @@ const AdvicedProductsArea = (props) => {
                                                      <h4>{product.Name}</h4>
                                                      <br></br>
                                                      Product Type:
-                                                     {product.ProductType}
+                                                     {props.product.ProductType}
                                                    </Card.Title>
                                                    <Card.Text>
+                                                     <small className='text-muted'>{props.product.Explanation}</small>
+                                                     <br></br>
                                                      Canton:
-                                                     {product.Canton}
+                                                     {props.product.Canton}
                                                      <br></br>
                                                      Address:
-                                                     {product.Address}
+                                                     {props.product.Address}
                                                    </Card.Text>
                                                  </Card.Body>
                                                  <Card.Footer>
-                                                  <small className='text-muted'>{product.Explanation}</small>
-                                                  <br></br>
                                                    Price:
                                                    {product.Price} CHF
                                                  </Card.Footer>

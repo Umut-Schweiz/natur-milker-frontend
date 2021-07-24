@@ -1,27 +1,8 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import SearchBoxArea from './SearchBoxArea'
 import ProductCard from './ProductCard'
-import * as productElement from '../services/product'
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 
-const ProductSearchResults = () => {
-
-  const { canton }  = useParams()
-  const { type }  = useParams()
-  
-  const [selectedProducts, setSelectedProducts] = useState([])
-
-  async function showSelectedProducts(canton , type) {
-    const products = await productElement.getSelectedProducts(canton , type);
-    setSelectedProducts(products)
-           
-  }
-  useEffect(() => {
-    showSelectedProducts(canton,type)
-  },[canton,type])
-
-
+const ProductSearchResults = (props) => {
   return (
 
     <Container>
@@ -39,7 +20,7 @@ const ProductSearchResults = () => {
 
           </Row>
           <Row>
-            {selectedProducts.map((product, index) => <Col sm={3} key={index}>
+            {props.product.map((product, index) => <Col sm={3} key={index}>
                                                    <ProductCard product={product} />
                                                    </Col>
              )}

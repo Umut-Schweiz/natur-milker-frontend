@@ -39,17 +39,17 @@ const App =  () => {
   }
 
   return (
+    
 
-<Router>
-
+    <Router>
     <Header/>
       <div>
         <Switch>
           <Route exact path='/'>
             <HomePage  product={productsforHomePage}/>
           </Route>
-          <Route path='/product-search/:canton/productType/:type' >
-            <ProductSearchResult  />
+          <Route path='/product-search-result' >
+            <ProductSearchResult  product={productsforHomePage} />
           </Route>
           <Route path='/product-detail/:productId'  >
             <ProductDetail product={productsforHomePage} />
