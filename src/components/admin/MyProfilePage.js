@@ -22,6 +22,8 @@ useEffect(() => {
   
   async function showProducts() {
     const products = await producerElement.getAllProducts(producerId);
+
+    console.log(products)
     if (products) {
       return setProducts(products);
     }
