@@ -61,38 +61,18 @@ const UpdateProduct = () =>{
           <Form.Label>Product Type select</Form.Label>
             <Form.Control as="select" onChange={e => setUpdatedProduct({ ...updatedProduct, ProductType: e.target.value })} >
               <option>Milk</option>
-              <option>Fruits</option>
-              <option>Vegatables</option>
+              <option>Fruit</option>
+              <option>Vegetables</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect2">
           <Form.Label>Canton select</Form.Label>
             <Form.Control as="select"  onChange={e => setUpdatedProduct({ ...updatedProduct, Canton: e.target.value })} >
-              <option>Zürich</option>
-              <option>Bern</option>
-              <option>Luzern</option>
-              <option>Nidwalden</option>
-              <option>Obwalden</option>
-              <option>Uri</option>
-              <option>Glarus</option>
-              <option>Zug</option>
+              <option>Zurich</option>
+              <option>Chur</option>
+              <option>Lozan</option>
+              <option>Basel</option>
               <option>Freiburg</option>
-              <option>Solothurn</option>
-              <option>Basel-Stadt</option>
-              <option>Basel-Landschaft</option>
-              <option>Schaffhausen</option>
-              <option>Appenzell-Ausserrhoden</option>
-              <option>Appenzell-Innerrhoden</option>
-              <option>St-Gallen</option>
-              <option>Graubünden</option>
-              <option>Aargau</option>
-              <option>Thurgau</option>
-              <option>Ticino</option>
-              <option>Vaud</option>
-              <option>Wallis</option>
-              <option>Neuchatel</option>
-              <option>Geneve</option>
-              <option>Jura</option>
             </Form.Control>
           </Form.Group>
       <Form.Group>
