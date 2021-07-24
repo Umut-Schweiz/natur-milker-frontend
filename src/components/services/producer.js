@@ -12,8 +12,7 @@ export async function getProducerbyId(producerId) {
 export async function getAllProducts(producerId) {
   try {
     const productsData = await fetch(`http://localhost:3005/products/producer/${producerId}` );
-    return await productsData.json();
-   
+    return await productsData.json(); 
   } catch (err) {
     console.log("error", err);
   }
