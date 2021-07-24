@@ -39,7 +39,6 @@ const App =  () => {
   }
 
   return (
-    
 
     <Router>
     <Header/>
@@ -48,8 +47,8 @@ const App =  () => {
           <Route exact path='/'>
             <HomePage  product={productsforHomePage}/>
           </Route>
-          <Route path='/product-search-result' >
-            <ProductSearchResult  product={productsforHomePage} />
+          <Route path='/product-search/:canton/productType/:type' >
+            <ProductSearchResult  />
           </Route>
           <Route path='/product-detail/:productId'  >
             <ProductDetail product={productsforHomePage} />
