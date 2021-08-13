@@ -1,9 +1,11 @@
 import { Container, Row, Table, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+
 import { AiFillDelete } from 'react-icons/ai'
 import { GrUpdate } from 'react-icons/gr'
 import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+
 
 const MyProductsInfo = (props) => {
 
@@ -61,6 +63,7 @@ const MyProductsInfo = (props) => {
           </thead>
           <tbody>
             {props.products.map((product) => <tr key={props.ProductId}>
+
                                                                                                                                <td>
                                                                                                                                {product.Name}
                                                                                                                                </td>
@@ -92,6 +95,7 @@ const MyProductsInfo = (props) => {
                                                                                                                                </td>
                                                                                                                                </tr>
                                                                                                                                )}
+
           </tbody>
         </Table>
       </Row>

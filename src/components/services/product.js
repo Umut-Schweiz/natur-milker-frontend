@@ -7,4 +7,5 @@ export async function getSelectedProducts(cantonName , productType) {
     } catch (err) {
       console.log("error", err);
     }
+
   }

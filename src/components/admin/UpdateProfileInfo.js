@@ -33,8 +33,39 @@ const UpdateProfileInfo = () =>{
     return (
       <div className='d-flex justify-content-center'>
     <Form className='m-5 d-block w-25' onSubmit={handleSubmit}>
-    <h3 className='updatebio-form-header mb-3'>Update Your Personel Informations</h3>
-       <Form.Group>
+      <h3 className='updatebio-form-header mb-3'>Update Your Personel Informations</h3>
+    <Form.Group>
+      <Form.Label>
+        First Name
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({...updatedProducer, FirstName: e.target.value})}
+        name='FirstName'
+        type='text'
+        placeholder='FirstName' />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>
+        Last Name
+      </Form.Label>
+      <Form.Control
+        onChange={e => setUpdatedProducer({...updatedProducer, LastName: e.target.value})}
+        name='LastName'
+        type='text'
+        placeholder='LastName' />
+    </Form.Group>
+    <Form.Group controlId='formBasicEmail'>
+          <Form.Label>
+            Email Address
+          </Form.Label>
+          <Form.Control
+            onChange={e => setUpdatedProducer({ ...updatedProducer, Mail: e.target.value })}
+            name='Mail'
+            type='email'
+            placeholder='Enter email' />
+        </Form.Group>
+    <Form.Group>
+
       <Form.Label>
         Password
       </Form.Label>
@@ -87,7 +118,7 @@ const UpdateProfileInfo = () =>{
     </Form.Group>
     
     <Button className='btn-button' variant='primary' type='submit'>
-      Submit
+      Update
     </Button>
     
   </Form>

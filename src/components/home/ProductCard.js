@@ -1,15 +1,16 @@
-import { Card } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 // SILINECEK
 
 const ProductCard = (props) => {
-
   return (
-
-    <Card className='SearchedAreaAdvicedProducts mb-5' key={props.index}>
+    <Card className="SearchedAreaAdvicedProducts mb-5" key={props.index}>
       <Link to={`/product-detail/${props.product.ProductId}`}>
-      <Card.Img variant='top' src='https://vanguardrenewables.com/wp-content/uploads/2020/09/RainbowFarm-1024x726.jpg' />
+        <Card.Img
+          variant="top"
+          src="https://vanguardrenewables.com/wp-content/uploads/2020/09/RainbowFarm-1024x726.jpg"
+        />
       </Link>
       <Card.Body>
         <Card.Title>
@@ -19,7 +20,7 @@ const ProductCard = (props) => {
           {props.product.ProductType}
         </Card.Title>
         <Card.Text>
-          <small className='text-muted'>{props.product.Explanation}</small>
+          <small className="text-muted">{props.product.Explanation}</small>
           <br></br>
           Canton:
           {props.product.Canton}
@@ -28,13 +29,14 @@ const ProductCard = (props) => {
           {props.product.Address}
         </Card.Text>
       </Card.Body>
+
       <Card.Footer>
         Price:
         {props.product.Price} CH
       </Card.Footer>
+
     </Card>
+  );
+};
 
-  )
-}
-
-export default ProductCard
+export default ProductCard;

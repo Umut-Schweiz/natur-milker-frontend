@@ -40,7 +40,8 @@ const App =  () => {
 
   return (
 
-    <Router>
+<Router>
+
     <Header/>
       <div>
         <Switch>

@@ -42,11 +42,12 @@ const DetailedProduct = (props) => {
         </Col>
         <Col>
         <Tabs defaultActiveKey='description' id='uncontrolled-tab-example'>
+
         <Tab eventKey='description' title='Description'>
              Name : {product.Name}
             <br></br>
             Product Type : {product.ProductType}
-            <br></br>
+    <br></br>
              Price : {product.Price}
              <br></br>
              <br></br>
