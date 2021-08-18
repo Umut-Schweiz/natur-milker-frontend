@@ -1,19 +1,19 @@
-import HomePage from './components/home/Home'
-import ProductDetail from './components/home/ProductDetail'
-import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
-import ProductSearchResult from './components/home/ProductsSearchResults'
-import MyProfilePage from './components/admin/MyProfilePage'
-import CreateNewProduct from './components/admin/CreateNewProduct'
-import UpdateProfileInfo from './components/admin/UpdateProfileInfo'
-import UpdateProductInfo from './components/admin/UpdateProductInfo'
+import HomePage from './home/Home'
+import ProductDetail from './home/ProductDetail'
+import Header from './layout/Header'
+import Footer from './layout/Footer'
+import ProductSearchResult from './home/ProductsSearchResults'
+import MyProfilePage from './admin/MyProfilePage'
+import CreateNewProduct from './admin/CreateNewProduct'
+import UpdateProfileInfo from './admin/UpdateProfileInfo'
+import UpdateProductInfo from './admin/UpdateProductInfo'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
-import Loading from './components/auth/Loading'
+import Loading from './auth/Loading'
 
 
-import ProtectedRoute from "./components/auth/protected-route";
+import ProtectedRoute from "./auth/protected-route";
 
 
 const App =  () => {

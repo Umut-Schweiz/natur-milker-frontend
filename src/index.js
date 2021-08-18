@@ -5,12 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Auth0ProviderWithHistory from './components/auth/auth0-provider-with-history'
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history'
 
 ReactDOM.render(
   <Router>
     <Auth0ProviderWithHistory>
-      <App />
+      <App/>
     </Auth0ProviderWithHistory>
   </Router>,
   document.getElementById('root')

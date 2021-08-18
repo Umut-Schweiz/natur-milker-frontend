@@ -21,9 +21,25 @@ footer {
 /****************************************
 HOMEPAGE
 ******************************************/
+
+.home-page-menu {
+    font-size: 3vh;
+    background-color:#ffffff;
+    margin-top: 40px;
+}
+
+.home-page-links {
+    color: #658628 !important;
+    margin: auto;
+}
+
 .homepage-registerbutton {
     background-color: #658628 !important;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+
+.home-page-menu-navbar {
+    background-color: #ffffff !important;
 }
 
 .btn-button {

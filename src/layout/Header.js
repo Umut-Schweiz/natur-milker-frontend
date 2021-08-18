@@ -11,29 +11,32 @@ const Header = () => {
   return (
     <Container className='home-page-header-container' fluid>
       <Row>
-        <Col>
+        <Col md={3}>
         <Link to='/'>
         <Image src='images/Natur Milker Logo.png' rounded className='logo' />
         </Link>
         </Col>
-        <Col>
-        <Link to='/'>
+        <Col className="home-page-menu" md={2}>
+        <Link className="home-page-links" to='/'>
           HOME
         </Link>
         </Col>
-        <Col>
-        <Link to='/'>
+        <Col className="home-page-menu" md={2}>
+        <Link className="home-page-links" to='/'>
           ABOUT
         </Link>
         </Col>
-        <Col md='auto'>
+        <Col className="home-page-menu"  md={2} >
        {isAuthenticated ? 
-        <Link to='my-profile-page'> My Account
+        <Link  className="home-page-links" to='my-profile-page'> My Account
           </Link> 
-        : <Link onClick={() => loginWithRedirect()}  >  My Account Login
+        : <Link  className="home-page-links" onClick={() => loginWithRedirect()}  >  My Account Login
         </Link> }
+        </Col>
+        <Col className="home-page-menu-navbar"md={3} > 
         <NavBar/>
         </Col>
+        
       </Row>
     </Container>
   )
