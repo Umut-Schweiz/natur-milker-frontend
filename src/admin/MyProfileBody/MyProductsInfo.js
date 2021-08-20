@@ -27,9 +27,9 @@ const MyProductsInfo = (props) => {
   }
 
   return (
-    <Container>
+    <Container className="product-table">
       <Row>
-        <Table striped bordered hover>
+        <Table  striped bordered hover>
           <thead>
             <tr>
               <th>
@@ -64,46 +64,46 @@ const MyProductsInfo = (props) => {
           <tbody>
             {props.products.map((product) => <tr key={props.ProductId}>
 
-                                                                                                                               <td>
-                                                                                                                               {product.Name}
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               {product.Explanation}
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               {product.ProductId}
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               {product.ProductType}
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               {product.Price}
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               {product.Canton}
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               {product.Address}
-                                                                                                                               </td>
-                                                                                                                               <td className='d-flex justify-content-center '>
-                                                                                                                               <Link to={`/update-product-info/${product.ProductId}`}>
-                                                                                                                               <GrUpdate size={30} />
-                                                                                                                               </Link>
-                                                                                                                               </td>
-                                                                                                                               <td>
-                                                                                                                               <AiFillDelete size={30} onClick={() => deleteProduct(product.ProductId)}/>
-                                                                                                                               </td>
-                                                                                                                               </tr>
-                                                                                                                               )}
+              <td>
+                {product.Name}
+              </td>
+              <td>
+                {product.Explanation}
+              </td>
+              <td>
+                {product.ProductId}
+              </td>
+              <td>
+                {product.ProductType}
+              </td>
+              <td>
+                {product.Price}
+              </td>
+              <td>
+                {product.Canton}
+              </td>
+              <td>
+                {product.Address}
+              </td>
+              <td className='d-flex justify-content-center '>
+                <Link to={`/update-product-info/${product.ProductId}`}>
+                  <GrUpdate size={30} />
+                </Link>
+              </td>
+              <td>
+                <AiFillDelete size={30} onClick={() => deleteProduct(product.ProductId)} />
+              </td>
+            </tr>
+            )}
 
           </tbody>
         </Table>
       </Row>
       <Row>
         <Link to={`/create-product/${props.producerId}`}>
-        <Button className='btn-button' variant='success'>
-          Create New Product
-        </Button>
+          <Button className='btn-button' variant='success'>
+            Create New Product
+          </Button>
         </Link>
       </Row>
     </Container>

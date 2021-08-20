@@ -18,12 +18,12 @@ const Header = () => {
         </Col>
         <Col className="home-page-menu" md={2}>
         <Link className="home-page-links" to='/'>
-          HOME
+          Home
         </Link>
         </Col>
         <Col className="home-page-menu" md={2}>
         <Link className="home-page-links" to='/'>
-          ABOUT
+          About
         </Link>
         </Col>
         <Col className="home-page-menu"  md={2} >

@@ -88,11 +88,16 @@ HOMEPAGE
 /****************************************
 My Profil Body
 ******************************************/
+/* 
 .profile-body-container {
-    /*height: 60vh; */
-    margin-bottom: 5vh;
-    border: 3px solid #80A142;
+    width: 15vh;
+    margin-bottom: 4vh;
+    border: 3px solid #658628;
     padding: 10px;
+} */
+
+.my-profil-menubar {
+    border: 3px solid #658628;
 }
 
 .button-search:hover {
@@ -102,8 +107,6 @@ My Profil Body
 /****************************************
 From Control
 ******************************************/
-
-
 
 .form-control:not(active) {
     color: #658628 !important;
@@ -144,14 +147,11 @@ Searhed Area Adviced Product Cards
     font-family: 'Righteous', cursive !important;
 }
 
-
-
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
 
     background-color: #445f11 !important;
 }
-
 
 .nav-item a {
     color: black;
@@ -161,7 +161,6 @@ Searhed Area Adviced Product Cards
 /****************************************
 Detailed Products
 ******************************************/
-
 .nav-tabs .nav-link {
     color: #445f11 !important;
 

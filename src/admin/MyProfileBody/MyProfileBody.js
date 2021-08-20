@@ -8,7 +8,7 @@ const MyProfilePageBody = (props) => {
     <Container className='profile-body-container container-fluid'>
       <Tab.Container id='left-tabs-example' defaultActiveKey='first'>
         <Row>
-          <Col sm={3}>
+          <Col className="my-profil-menubar" sm={3}>
           <Nav variant='pills' className='flex-column'>
             <Nav.Item>
               <Nav.Link eventKey='first'>
