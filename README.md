@@ -17,6 +17,43 @@ HTML5 , CSS3 , JavaScript , Bootstrap , RestAPIs , NodeJS , React
 
 4.User Interface
 
+Home Page
+
+
+![gif1](https://user-images.githubusercontent.com/69093672/130858383-269c2345-f17e-4dd4-a3d5-f0fd5d85fdf6.gif)
+
+
+
+Search Box
+
+![2](https://user-images.githubusercontent.com/69093672/130858678-d67c93dc-0847-4be0-9721-18c425e3caf6.gif)
+
+
+
+
+Login and Register
+
+![3](https://user-images.githubusercontent.com/69093672/130858814-741815c1-d042-43f7-b3f7-b8c8cee1f2d7.gif)
+
+
+
+Producer Account
+
+
+
+![4](https://user-images.githubusercontent.com/69093672/130859141-d7cf23fb-89e2-4d15-8df6-62c17bfe216e.gif)
+
+
+
+
+Product CRUD 
+
+
+
+![5](https://user-images.githubusercontent.com/69093672/130859346-e68020b1-34ae-476b-a6f4-7575cbf888b3.gif)
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
